@@ -50,5 +50,18 @@ namespace CarRepairExcelAddIn
 
             return carRepairReportDTOs;
         }
+
+        public void FillDBTestDatas()
+        {
+            string sqlExpressionInsertBrands = "INSERT INTO [Brands] ([Name]) VALUES ('Brand')";
+            
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpressionInsertBrands, connection);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
