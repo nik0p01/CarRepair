@@ -13,5 +13,6 @@ namespace CarRepairExcelAddIn
     public interface IAddInUtilities
     {
         void ImportData(int month);
+        void FillDBTestDatas();
     }
 }
