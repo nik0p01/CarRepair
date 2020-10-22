@@ -60,10 +60,10 @@ namespace CarRepairExcelAddIn
                 sqlExpressionInsertBrands += $",('Brand{i}')";
             }
 
-            string sqlExpressionInsertModels = "INSERT INTO [Models] ([Name],[IDBrand]) VALUES ('Models', 1)";
+            string sqlExpressionInsertModels = "INSERT INTO [Models] ([Name],[IDBrand]) VALUES ('Models', 2)";
             for (int i = 0; i < 30; i++)
             {
-                sqlExpressionInsertModels += $",('Model{i}', {i%10+1})";
+                sqlExpressionInsertModels += $",('Model{i}', {i%8+2})";
             }
             string sqlExpressionInsertMasters = "INSERT INTO [Masters] ([FullName],[Phone], [DateStartWork] ) VALUES ('Master', '00-00-00', '2010-01-01')";
             for (int i = 0; i < 40; i++)
@@ -73,23 +73,23 @@ namespace CarRepairExcelAddIn
             string sqlExpressionInsertOwners = "INSERT INTO [Owners] ([FullName],[Phone], [IDCardNumber] ) VALUES ('Owner', '00-00-00', '2010-01-01')";
             for (int i = 0; i < 40; i++)
             {
-                sqlExpressionInsertOwners += $",('Owner{i}', '00-00-00{i}', '2010-{i % 12 + 1}-0{i % 9 + 1}')";
+                sqlExpressionInsertOwners += $",('Owner{i}', '00-00-00{i}', '2010-{i % 12 + 1}-0{i}')";
             }
-            string sqlExpressionInsertCars = "INSERT INTO [Cars] ([Nuber],[Distance], [VolumeEngine],[IDOwner],[IDModel] ) VALUES ('oo000ooo', 1000, 5,1,2)";
+            string sqlExpressionInsertCars = "INSERT INTO [Cars] ([Nuber],[Distance], [VolumeEngine],[IDOwner],[IDModel] ) VALUES ('oo000ooo', 1000, 5,2,2)";
             for (int i = 0; i < 100; i++)
             {
-                sqlExpressionInsertCars += $",('oo0{i}ooo', {i}000, {i},{i%40+1},{i % 20 + 10})";
+                sqlExpressionInsertCars += $",('oo0{i}ooo', {i}000, {i},{i%39+2},{i % 20 + 10})";
             }
-            string sqlExpressionInsertCarRepair = "INSERT INTO [Repaires] ([Price],[DateStart],[DataEnd],[IDCar],[IDMaster] ) VALUES (1000, '2020-05-01', '2020-05-01',1,1)";
-            for (int i = 0; i <250; i++)
+            string sqlExpressionInsertCarRepair = "INSERT INTO [Repaires] ([Price],[DateStart],[DataEnd],[IDCar],[IDMaster] ) VALUES (1000, '2020-05-01', '2020-05-01',2,4)";
+            for (int i = 0; i <50; i++)
             {
                 if (i%2 ==0)
                 {
-                    sqlExpressionInsertCarRepair += $",({(i+1)*1000}, '2020-0{i % 7 + 1}-0{i % 9 + 1}', '2020-0{i % 7 + 2}-0{i % 9 + 1}',{i % 75 + 15},{i % 40 + 1})";
+                    sqlExpressionInsertCarRepair += $",({(i+1)*1000}, '2020-0{i % 7 + 1}-0{i % 9 + 1}', '2020-0{i % 7 + 2}-0{i % 9 + 1}',{i % 75 + 15},{i % 36 + 4})";
                 }
                 else
                 {
-                    sqlExpressionInsertCarRepair += $",({(i+1) * 1000}, '2020-0{i % 7 + 1}-0{i % 9 + 1}', NULL,{i % 75 + 15},{i % 40 + 1})";
+                    sqlExpressionInsertCarRepair += $",({(i+1) * 1000}, '2020-0{i % 7 + 1}-0{i % 9 + 1}', NULL,{i % 75 + 15},{i % 36 + 4})";
                 }
 
             }
